@@ -25,10 +25,26 @@ public class RacingGame {
     public void start() {
         try {
             init();
+            play();
+            gameEnd();
         } catch (NumberFormatException e) {
             printError(e.getMessage());
         } catch (IllegalArgumentException e) {
             printError(e.getMessage());
+        }
+    }
+
+    private void gameEnd() {
+
+    }
+
+    private void play() {
+        while( count-- > 0) {
+            for (Car car : cars) {
+                car.move();
+                System.out.println(car);
+            }
+            System.out.println();
         }
     }
 
