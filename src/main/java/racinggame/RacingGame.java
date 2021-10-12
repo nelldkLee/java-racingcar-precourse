@@ -2,31 +2,26 @@ package racinggame;
 
 import nextstep.utils.Console;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
 
-    private List<Car> cars = new ArrayList<>();
+    private CarGroups carGroups;
     private int count;
 
     private void init() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        String inputData = Console.readLine();
-        String[] carNames = inputData.split(",");
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
+        this.carGroups = new CarGroups(Console.readLine());
+
         System.out.println("시도할 회수는 몇회인가요?");
-        String inputCount = Console.readLine();
-        this.count = Integer.parseInt(inputCount);
+        this.count = Integer.parseInt(Console.readLine());
     }
 
     public void start() {
         try {
             init();
             play();
-            gameEnd();
+            destroy();
         } catch (NumberFormatException e) {
             printError(e.getMessage());
         } catch (IllegalArgumentException e) {
@@ -34,21 +29,30 @@ public class RacingGame {
         }
     }
 
-    private void gameEnd() {
+    private void destroy() {
 
     }
 
     private void play() {
-        while( count-- > 0) {
-            for (Car car : cars) {
-                car.move();
-                System.out.println(car);
-            }
-            System.out.println();
+        for (int i = 0; i < count; i++) {
+            printList(carGroups.move());
         }
     }
 
-    private void printError(String message) {
-        System.out.println("[ERROR] " + message);
+    private void printMessage(String message) {
+        System.out.println(message);
     }
+
+    private void printList(List<String> messages) {
+        for (String message : messages) {
+            printMessage(message);
+        }
+        printMessage("");
+    }
+
+    private void printError(String message) {
+        printMessage("[ERROR] " + message);
+    }
+
+
 }
