@@ -10,7 +10,7 @@ public class RepeatCount {
 
     private void validatePositive(int count) {
         if (count <= 0) {
-            throw new IllegalArgumentException(String.format("", count));
+            throw new IllegalArgumentException(String.format(RacingGameMessage.ENTER_POSITIVE_NUMBER.getMessage(), count));
         }
     }
 

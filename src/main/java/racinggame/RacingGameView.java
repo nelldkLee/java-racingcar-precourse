@@ -11,7 +11,7 @@ public class RacingGameView {
     public void printListInList(List<List<String>> results) {
         for (List<String> messages : results) {
             printList(messages);
-            printMessage("");
+            printMessage(RacingGameMessage.EMPTY.getMessage());
         }
     }
 
@@ -22,6 +22,6 @@ public class RacingGameView {
     }
 
     public void printError(String message) {
-        printMessage(String.format("[ERROR] %s", message));
+        printMessage(String.format(RacingGameMessage.ERROR_PREFIX_FORMAT.getMessage(), message));
     }
 }

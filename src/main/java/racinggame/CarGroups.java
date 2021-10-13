@@ -12,7 +12,7 @@ public class CarGroups {
     }
 
     public CarGroups(String inputData) {
-        String[] carNames = inputData.split(",");
+        String[] carNames = inputData.split(RacingGameMessage.COMMA.getMessage());
         for (String carName : carNames) {
             cars.add(new Car(carName));
         }
@@ -48,6 +48,7 @@ public class CarGroups {
         }
         return farthestPosigion;
     }
+
     public int getCarsSize() {
         return cars.size();
     }

@@ -5,7 +5,7 @@ import nextstep.utils.Randoms;
 import static nextstep.utils.Randoms.pickNumberInRange;
 
 public class Car {
-    public static final String VALID_MSG_CAR_NAME_SIZE = "자동차 이름은 5자 이하만 가능합니다.";
+
     private String name;
     private int position;
 
@@ -21,7 +21,7 @@ public class Car {
 
     private void validateNameSize(String name) {
         if (name.length() > 5) {
-            throw new IllegalArgumentException(VALID_MSG_CAR_NAME_SIZE);
+            throw new IllegalArgumentException(RacingGameMessage.ENTER_LESS_THAN_5_LETTERS.getMessage());
         }
     }
 
@@ -33,9 +33,9 @@ public class Car {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < position; i++) {
-            builder.append("-");
+            builder.append(RacingGameMessage.DASH.getMessage());
         }
-        return name + " : " + builder.toString();
+        return name + RacingGameMessage.COLON.getMessage() + builder.toString();
     }
 
     public int getPosition() {
