@@ -27,10 +27,10 @@ public class RacingGameController {
             racingGameView.printList(racingGameService.playResult());
         } catch (NumberFormatException e) {
             racingGameView.printError(e.getMessage());
-            init();
+            start();
         } catch (IllegalArgumentException e) {
             racingGameView.printError(e.getMessage());
-            init();
+            start();
         }
     }
 }

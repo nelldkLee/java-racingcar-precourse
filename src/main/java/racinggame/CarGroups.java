@@ -7,6 +7,10 @@ public class CarGroups {
 
     private List<Car> cars = new ArrayList<>();
 
+    public CarGroups(List<Car> cars) {
+        this.cars = cars;
+    }
+
     public CarGroups(String inputData) {
         String[] carNames = inputData.split(",");
         for (String carName : carNames) {
@@ -43,5 +47,8 @@ public class CarGroups {
             farthestPosigion = Math.max(farthestPosigion, car.getPosition());
         }
         return farthestPosigion;
+    }
+    public int getCarsSize() {
+        return cars.size();
     }
 }

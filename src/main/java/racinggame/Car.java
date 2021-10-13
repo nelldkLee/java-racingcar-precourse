@@ -14,6 +14,11 @@ public class Car {
         this.name = name;
     }
 
+    public Car(String name, int position) {
+        this.name = name;
+        this.position = position;
+    }
+
     private void validateNameSize(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException(VALID_MSG_CAR_NAME_SIZE);
