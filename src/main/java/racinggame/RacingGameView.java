@@ -8,16 +8,20 @@ public class RacingGameView {
         System.out.println(message);
     }
 
-    public void printList(List<List<String>> results) {
+    public void printListInList(List<List<String>> results) {
         for (List<String> messages : results) {
-            for (String message : messages) {
-                printMessage(message);
-            }
+            printList(messages);
             printMessage("");
         }
     }
 
+    public void printList(List<String> messages) {
+        for (String message : messages) {
+            printMessage(message);
+        }
+    }
+
     public void printError(String message) {
-        printMessage("[ERROR] " + message);
+        printMessage(String.format("[ERROR] %s", message));
     }
 }

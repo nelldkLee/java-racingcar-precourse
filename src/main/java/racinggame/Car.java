@@ -32,4 +32,12 @@ public class Car {
         }
         return name + " : " + builder.toString();
     }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -1,2 +1,5 @@
-package racinggame;public enum RacingGameMessage {
+package racinggame;
+
+public enum RacingGameMessage {
+
 }

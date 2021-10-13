@@ -20,4 +20,18 @@ public class RacingGameService {
         }
         return result;
     }
+
+    public List<String> playResult() {
+        List<String> result = new ArrayList<>();
+        List<Car> farthestCars = carGroups.getFarthestCars();
+        StringBuilder builder = new StringBuilder();
+        for (Car farthestCar : farthestCars) {
+            if (builder.length() > 0) {
+                builder.append(",");
+            }
+            builder.append(farthestCar.getName());
+        }
+        result.add(String.format("최종 우승자는 %s 입니다.", builder.toString()));
+        return result;
+    }
 }

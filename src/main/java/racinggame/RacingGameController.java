@@ -2,8 +2,6 @@ package racinggame;
 
 import nextstep.utils.Console;
 
-import java.util.List;
-
 public class RacingGameController {
 
     private RacingGameView racingGameView;
@@ -25,16 +23,14 @@ public class RacingGameController {
     public void start() {
         try {
             init();
-            racingGameView.printList(racingGameService.play());
-            destroy();
+            racingGameView.printListInList(racingGameService.play());
+            racingGameView.printList(racingGameService.playResult());
         } catch (NumberFormatException e) {
             racingGameView.printError(e.getMessage());
+            init();
         } catch (IllegalArgumentException e) {
             racingGameView.printError(e.getMessage());
+            init();
         }
-    }
-
-    private void destroy() {
-
     }
 }

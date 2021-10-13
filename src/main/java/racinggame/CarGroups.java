@@ -13,6 +13,7 @@ public class CarGroups {
             cars.add(new Car(carName));
         }
     }
+
     public List<String> move() {
         List<String> result = new ArrayList<>();
         for (Car car : cars) {
@@ -20,5 +21,27 @@ public class CarGroups {
             result.add(car.toString());
         }
         return result;
+    }
+
+    public List<Car> getFarthestCars() {
+        List<Car> farthestCars = new ArrayList<>();
+        int farthestPosition = getFarthestPosition();
+
+        for (Car car : cars) {
+            addFarthestCars(farthestCars, farthestPosition, car);
+        }
+        return farthestCars;
+    }
+
+    private void addFarthestCars(List<Car> farthestCars, int farthestPosition, Car car) {
+        if (car.getPosition() == farthestPosition) farthestCars.add(car);
+    }
+
+    private int getFarthestPosition() {
+        int farthestPosigion = 0;
+        for (Car car : cars) {
+            farthestPosigion = Math.max(farthestPosigion, car.getPosition());
+        }
+        return farthestPosigion;
     }
 }
