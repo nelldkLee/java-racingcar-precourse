@@ -12,10 +12,10 @@ public class RacingGameController {
     }
 
     private void init() {
-        System.out.println(RacingGameMessage.ENTER_CAR_NAME.getMessage());
+        racingGameView.printMessage(RacingGameMessage.ENTER_CAR_NAME.getMessage());
         CarGroups carGroups = new CarGroups(Console.readLine());
 
-        System.out.println(RacingGameMessage.ENTER_REPEAT_COUNT.getMessage());
+        racingGameView.printMessage(RacingGameMessage.ENTER_REPEAT_COUNT.getMessage());
         RepeatCount repeatCount = new RepeatCount(Integer.parseInt(Console.readLine()));
         this.racingGameService = new RacingGameService(carGroups, repeatCount);
     }

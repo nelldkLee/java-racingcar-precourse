@@ -26,12 +26,16 @@ public class RacingGameService {
         List<Car> farthestCars = carGroups.getFarthestCars();
         StringBuilder builder = new StringBuilder();
         for (Car farthestCar : farthestCars) {
-            if (builder.length() > 0) {
-                builder.append(RacingGameMessage.COMMA.getMessage());
-            }
+            addComma(builder);
             builder.append(farthestCar.getName());
         }
         result.add(String.format(RacingGameMessage.RACING_WINNER_FORMAT.getMessage(), builder.toString()));
         return result;
+    }
+
+    private void addComma(StringBuilder builder) {
+        if (builder.length() > 0) {
+            builder.append(RacingGameMessage.COMMA.getMessage());
+        }
     }
 }
